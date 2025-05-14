@@ -1,30 +1,30 @@
-#include <iostream>
-#include <cstdlib>
+#include <iostream>                          // Подключаем библиотеку для ввода/вывода (cin, cout)
+#include <cstdlib>                           // Для функций rand() и srand()
 #include <ctime>
-#include <clocale> // Для setlocale
+#include <clocale>                           // Для setlocale
 using namespace std;
 
 int main() {
-    setlocale(LC_ALL, "RUS"); // Включаем поддержку русских символов
+    setlocale(LC_ALL, "RUS");                // Включаем поддержку русских символов
 
-    srand(time(0));
-    int number = rand() % 100 + 1;
-    int guess;
+    srand(time(0));                          // Инициализируем генератор случайных чисел текущим временем (чтобы числа были разные)
+    int number = rand() % 100 + 1;           // Генерируем случайное число от 1 до 100 и сохраняем в переменную number
+    int guess;                               // Объявляем переменную guess, в которую пользователь будет вводить свои предположения
 
-    cout << "Угадай число от 1 до 100:\n";
+    cout << "Угадай число от 1 до 100:\n";   // Выводим для пользователя заголовок
 
     do {
-        cout << "Твой вариант: ";
-        cin >> guess;
+        cout << "Твой вариант: ";            // Просим пользователя ввести число
+        cin >> guess;                        // Считаем введённое число с клавиатуры
 
         if (guess > number)
-            cout << "Меньше!\n";
+            cout << "Меньше!\n";             // Если введённое число больше загаданного — выводим "Меньше!"
         else if (guess < number)
-            cout << "Больше!\n";
+            cout << "Больше!\n";             // Если меньше — выводим "Больше!"
         else
-            cout << "Ты угадал!\n";
+            cout << "Ты угадал!\n";          // Если равно — поздравляем пользователя
 
-    } while (guess != number);
+    } while (guess != number);               // Повторяем цикл, пока пользователь не угадает число
 
     return 0;
 }
